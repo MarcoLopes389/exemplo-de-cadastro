@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="card">
+    {{#each users}}
+    <div class="card">
+      <p class="card-body">{{nome}}</p>
+      <p style="margin: 15px">{{email}}</p>
+      <p style="margin: 15px">{{eAdmin}}</p>
+      <form style="margin: 15px" action="/admin/users/tornar-adm" method="post">
+        <input type="hidden" name="id" value="{{_id}}">
+        <button class="btn btn-success" type="submit" name="button">Tornar Admin</button>
+      </form>
+      <form style="margin: 15px" action="/admin/users/excluir" method="post">
+        <input type="hidden" name="id" value="{{_id}}">
+        <button class="btn btn-danger" type="submit" name="button">Excluir</button>
+      </form>
+    </div>
+    {{else}}
+    <p class="card-body alert alert-info">Não existem usuários ainda</p>
+    {{/each}}
+  </div>
+</div>

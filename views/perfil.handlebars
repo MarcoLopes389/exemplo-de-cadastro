@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="card">
+    <div class="card card-body">
+      {{#if user}}
+      <p>{{user.nome}}</p>
+      <p>{{user.email}}</p>
+      <p>{{user.eAdmin}}</p>
+      {{else}}
+      <p>Você não está cadastrado</p>
+      {{/if}}
+    </div>
+  </div>
+</div>

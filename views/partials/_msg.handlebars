@@ -2,6 +2,10 @@
   <p class="alert alert-danger">{{error_msg}}</p>
 {{else}}
 {{/if}}
+{{#if error}}
+  <p class="alert alert-danger">{{error}}</p>
+{{else}}
+{{/if}}
 {{#if success_msg}}
   <p class="alert alert-success">{{success_msg}}</p>
 {{else}}

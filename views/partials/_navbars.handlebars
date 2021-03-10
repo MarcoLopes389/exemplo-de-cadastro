@@ -12,9 +12,18 @@
         <li class="nav-item">
           <a class="nav-link" href="/produtos">Produtos</a>
         </li>
+        {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/perfil">Perfil</a>
+        </li>
+        {{else}}
         <li class="nav-item">
           <a class="nav-link" href="/entrar">Entrar</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cadastro">Cadastro</a>
+        </li>
+        {{/if}}
       </ul>
     </div>
   </div>

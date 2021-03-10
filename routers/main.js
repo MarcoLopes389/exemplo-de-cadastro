@@ -2,7 +2,11 @@ const express = require("express")
 const router = express.Router()
 const mongoose = require('mongoose')
 require('../models/Postagens')
+require('../models/Usuarios')
 const Produtos = mongoose.model("postagens")
+const Usuarios = mongoose.model("usuarios")
+const bcrypt = require("bcryptjs")
+const passport = require('passport')
 
 router.get("/", (req, res) => {
   res.render('home')
@@ -15,6 +19,54 @@ router.get('/produtos', (req, res) => {
     req.flash("error_msg", "Não foi possível carregar as postagens")
     res.redirect('/')
   })
+})
+
+router.get('/cadastro', (req, res) => {
+  res.render('cadastro')
+})
+
+router.post('/cadastro', (req, res) => {
+  bcrypt.genSalt(10, (erro, salt) => {
+    bcrypt.hash(req.body.senha, salt, (erro, hash) => {
+      if(erro){
+        req.flash("error_msg", "Houve um erro ao salvar o usuário")
+        res.redirect('/')
+      }
+      new Usuarios({
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: hash
+      }).save().then(() => {
+        req.flash("success_msg", "Usuário cadastrado com sucesso")
+        res.redirect("/")
+      }).catch((err) => {
+        req.flash("error_msg", "Erro ao criar o usuário")
+        res.redirect("/")
+      })
+    })
+  })
+})
+
+router.get('/entrar', (req, res) => {
+  res.render('login')
+})
+
+router.post('/entrar', (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/admin",
+    failureRedirect: "/entrar",
+    failureFlash: true
+  })(req, res, next)
+})
+
+router.get('/sair', (req, res) => {
+  req.logout()
+  req.flash("success_msg", "Você saiu")
+  res.redirect('/')
+})
+
+router.get('/perfil', (req, res) => {
+  res.render('perfil')
 })
 
 module.exports = router
