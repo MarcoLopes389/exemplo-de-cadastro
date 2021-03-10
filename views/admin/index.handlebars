@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card">
+    {{#each posts}}
+    <div class="card">
+      <p class="h3 card-body">{{titulo}}</p>
+      <p style="margin: 15px">{{descricao}}</p>
+      <form action="/admin/delete" method="post">
+        <input type="hidden" name="id" value="{{_id}}">
+        <button style="margin: 15px" class="btn btn-danger" type="submit" name="button">Deletar</button>
+      </form>
+    </div>
+    {{else}}
+    {{/each}}
+    <a class="card-body" href="/admin/novo"> <button class="btn btn-success" type="button" name="button">Novo</button> </a>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="card">
+    {{#each posts}}
+    <div class="card">
+      <p class="card-body h3">{{titulo}}</p>
+      <p class="card-body">{{descricao}}</p>
+    </div>
+    {{else}}
+    <p class="card-body alert alert-info">Não existem postagens ainda</p>
+    {{/each}}
+  </div>
+</div>
