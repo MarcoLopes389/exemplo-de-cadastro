@@ -3,11 +3,12 @@ Este é um codigo de exemplo de cadastro de postagens usando nodejs, mongodb e e
 O objetivo é conseguir cadastrar postagens e usuários que possam acessar a rota admin ou não.
 
 <h3>Tabela de tópicos</h3>
-   * [Módulos usados](#modulos)
-   * [Status do projeto](#status)
-   * [Como rodar a aplicação](#rodar)
-   * [Objetivos](#objetivos)
-
+   <ul>
+  <li><a href="#módulos">Módulos usados</a></li>
+  <li><a href="#status">Status do projeto</a></li>
+  <li><a href="#rodar">Como rodar</a></li>
+  <li><a href="#objetivos">Objetivos</a></li>
+  </ul>
 <h3 id="modulos">Módulos usados:</h3>
    <ul>
         <li><a href="https://www.npmjs.com/package/mongoose">mongoose</a></li>
@@ -32,4 +33,5 @@ Em produção...
 <h3 id="objetivos">Objetivos:</h3>
 - [x] Configurações iniciais
 - [x] CRUD de postagens
-- [ ] Autenticação de usuários
+- [ ] CRUD de usuários
+- [ ] Autenticação
