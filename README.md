@@ -2,7 +2,7 @@
 Este é um codigo de exemplo de cadastro de postagens usando nodejs, mongodb e express.
 O objetivo é conseguir cadastrar postagens e usuários que possam acessar a rota admin ou não.
 
-##Tabela de tópicos:
+<h3>Tabela de tópicos</h3>
   <!--ts-->
    * [Módulos usados](#modulos)
    * [Status do projeto](#status)
