@@ -8,7 +8,7 @@ O objetivo é conseguir cadastrar postagens e usuários que possam acessar a rot
    * [Como rodar a aplicação](#rodar)
    * [Objetivos](#objetivos)
 
-<h3 id="modulos>Módulos usados:</h3>
+<h3 id="modulos">Módulos usados:</h3>
    <ul>
         <li><a href="https://www.npmjs.com/package/mongoose">mongoose</a></li>
         <li><a href="https://www.npmjs.com/package/connect-flash">connect-flash</a></li>
