@@ -9,19 +9,23 @@ O objetivo é conseguir cadastrar postagens e usuários que possam acessar a rot
    * [Objetivos](#objetivos)
 
 <h3 id="modulos>Módulos usados:</h3>
-   * [mongoose](https://www.npmjs.com/package/mongoose)
-   * [connect-flash](https://www.npmjs.com/package/connect-flash)
-   * [express-session](https://www.npmjs.com/package/express-session)
-   * [express-handlebars](https://www.npmjs.com/package/express-handlebars)
-   * [body-parser](https://www.npmjs.com/package/body-parser)
+   <ul>
+        <li><a href="https://www.npmjs.com/package/mongoose">mongoose</a></li>
+        <li><a href="https://www.npmjs.com/package/connect-flash">connect-flash</a></li>
+        <li><a href="https://www.npmjs.com/package/express-session">express-session</a></li>
+        <li><a href="https://www.npmjs.com/package/express-handlebars">express-handlebars</a></li>
+        <li><a href="https://www.npmjs.com/package/body-parser">body-parser</a></li>
+   </ul>
    
 <h3 id="status">Status</h3>
 Em produção...
 
 <h3 id="rodar">Como rodar:</h3>
   Se já tiver o nodejs instalado, rode os seguintes comandos no cmd dentro da pasta do projeto:
-   * *npm i
-   * *npm start
+  <ul>
+  <li>npm i</li>
+  <li>npm start</li>
+  </ul>
  
   A aplicação vai estar em localhost:3000
 
