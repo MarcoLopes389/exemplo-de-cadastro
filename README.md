@@ -26,6 +26,6 @@ Em produção...
   A aplicação vai estar em localhost:3000
 
 <h3 id="objetivos">Objetivos:</h3>
-[x] Configurações iniciais
-[x] CRUD de postagens
-[ ] Autenticação de usuários
+- [x] Configurações iniciais
+- [x] CRUD de postagens
+- [ ] Autenticação de usuários
