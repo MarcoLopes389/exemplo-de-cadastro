@@ -19,7 +19,7 @@ O objetivo é conseguir cadastrar postagens e usuários que possam acessar a rot
    </ul>
    
 <h3 id="status">Status</h3>
-Em produção...
+Terminado
 
 <h3 id="rodar">Como rodar:</h3>
   Se já tiver o nodejs instalado, rode os seguintes comandos no cmd dentro da pasta do projeto:
@@ -31,7 +31,9 @@ Em produção...
   A aplicação vai estar em localhost:3000
 
 <h3 id="objetivos">Objetivos:</h3>
-- [x] Configurações iniciais
-- [x] CRUD de postagens
-- [ ] CRUD de usuários
-- [ ] Autenticação
+- [x] Configurações iniciais<br>
+- [x] CRUD de postagens<br>
+- [x] CRUD de usuários<br>
+- [x] Autenticação<br>
+
+<a href="https://exemplo-de-cadastro.herokuapp.com">Deploy da aplicação</a>
