@@ -7,23 +7,23 @@ const Postagens = mongoose.model("postagens")
 const Usuarios = mongoose.model("usuarios")
 const {eAdmin} = require('../helpers/eadmin')
 
-router.get('/', (req, res) => {
+router.get('/', eAdmin, (req, res) => {
   Postagens.find().then((posts) => {
     res.render("admin/index", {posts: posts})
   })
 })
 
-router.get('/novo', (req, res) => {
+router.get('/novo', eAdmin, (req, res) => {
   res.render("admin/novoproduto")
 })
 
-router.get('/post/edit/:id', (req, res) => {
+router.get('/post/edit/:id', eAdmin, (req, res) => {
   Postagens.findOne({_id: req.params.id}).then((post) => {
     res.render('editpost', {post: post})
   })
 })
 
-router.post('/post/edit/:id', (req, res) => {
+router.post('/post/edit/:id', eAdmin, (req, res) => {
   Postagens.findOne({_id: req.params.id}).then((post) => {
     post.titulo = req.body.titulo
     post.descricao = req.body.descricao
@@ -37,7 +37,7 @@ router.post('/post/edit/:id', (req, res) => {
   })
 })
 
-router.post('/novo', (req, res) => {
+router.post('/novo', eAdmin, (req, res) => {
   new Postagens({
     titulo: req.body.titulo,
     descricao: req.body.descricao
@@ -50,7 +50,7 @@ router.post('/novo', (req, res) => {
   })
 })
 
-router.post('/delete', (req, res) => {
+router.post('/delete', eAdmin, (req, res) => {
   Postagens.deleteOne({_id: req.body.id}).then(() => {
     req.flash("success_msg", "Postagem deletada com sucesso")
     res.redirect("/admin")
@@ -60,13 +60,13 @@ router.post('/delete', (req, res) => {
   })
 })
 
-router.get('/usuarios', (req, res) => {
+router.get('/usuarios', eAdmin, (req, res) => {
   Usuarios.find().then((usuarios) => {
     res.render('admin/users', {users: usuarios})
   })
 })
 
-router.post('/users/tornar-adm', (req, res) => {
+router.post('/users/tornar-adm', eAdmin, (req, res) => {
   Usuarios.findOne({_id: req.body.id}).then((usuario) => {
     usuario.eAdmin = 1
     usuario.save().then(() => {
@@ -79,7 +79,7 @@ router.post('/users/tornar-adm', (req, res) => {
   })
 })
 
-router.post('/users/excluir', (req, res) => {
+router.post('/users/excluir', eAdmin, (req, res) => {
   Usuarios.deleteOne({_id: req.body.id}).then(() => {
     req.flash("success_msg", "Usuário excluído com sucesso")
     res.redirect('/admin/usuarios')

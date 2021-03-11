@@ -17,6 +17,15 @@ const hbs = handlebars.create({
   runtimeOptions: {
     allowProtoPropertiesByDefault: true,
     allowProtoMethodsByDefault: true
+  },
+  helpers:{
+    admin: function(eadmin){
+      if(eadmin == 1){
+        return "Você é um administrador"
+      } else {
+        return "Você não é um administrador"
+      }
+    }
   }
 })
 

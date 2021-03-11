@@ -2,9 +2,9 @@
   <div class="card">
     <div class="card card-body">
       {{#if user}}
-      <p>{{user.nome}}</p>
-      <p>{{user.email}}</p>
-      <p>{{user.eAdmin}}</p>
+      <p>Nome: {{user.nome}}</p>
+      <p>E-mail: {{user.email}}</p>
+      <p class="alert alert-info">{{#admin user.eAdmin}}{{/admin}}</p>
       <a href="/users/edit"> <button class="btn btn-warning" type="button" name="button">Editar perfil</button> </a>
       {{else}}
       <p>Você não está cadastrado</p>
