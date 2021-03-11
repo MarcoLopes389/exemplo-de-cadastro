@@ -69,4 +69,32 @@ router.get('/perfil', (req, res) => {
   res.render('perfil')
 })
 
+router.get('/users/edit', (req, res) => {
+  res.render('editperfil')
+})
+
+router.post('/users/edit', (req, res) => {
+  Usuarios.findOne({_id: req.body.id}).then((usuario) => {
+    usuario.nome = req.body.nome
+    usuario.email = req.body.email
+
+    bcrypt.genSalt(10, (erro, salt) => {
+      bcrypt.hash(req.body.senha, salt, (erro, hash) => {
+        if(erro){
+          req.flash("error_msg", "Houve um erro ao editar o usuário")
+          res.redirect('/')
+        }
+        usuario.senha = hash
+        usuario.save().then(() => {
+          req.flash("success_msg", "Usuário editado com sucesso")
+          res.redirect('/')
+        }).catch((err) => {
+          req.flash("error_msg", "Não foi possível editar o usuário")
+          res.redirect('/')
+        })
+      })
+    })
+  })
+})
+
 module.exports = router

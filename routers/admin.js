@@ -17,6 +17,26 @@ router.get('/novo', (req, res) => {
   res.render("admin/novoproduto")
 })
 
+router.get('/post/edit/:id', (req, res) => {
+  Postagens.findOne({_id: req.params.id}).then((post) => {
+    res.render('editpost', {post: post})
+  })
+})
+
+router.post('/post/edit/:id', (req, res) => {
+  Postagens.findOne({_id: req.params.id}).then((post) => {
+    post.titulo = req.body.titulo
+    post.descricao = req.body.descricao
+
+    post.save().then(() => {
+      req.flash("success_msg", "Postagem editada com sucesso")
+      res.redirect('/admin')
+    }).catch((err) => {
+      req.flash("error_msg", "Não foi possível editar a postagem")
+    })
+  })
+})
+
 router.post('/novo', (req, res) => {
   new Postagens({
     titulo: req.body.titulo,
@@ -24,6 +44,7 @@ router.post('/novo', (req, res) => {
   }).save().then(() => {
     req.flash("success_msg", "Postagem criada com sucesso")
     res.redirect('/admin')
+
   }).catch((err) => {
     req.flash("error_msg", "Não foi possível criar a postagem")
   })
